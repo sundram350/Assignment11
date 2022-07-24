@@ -1,12 +1,13 @@
 Ans=1
 int main()
 {
-    int i,j;
+    int i,j,k;
     printf("Enter two for LCM ");
     scanf("%d%d",&i,&j);
-    LCM(i,j);
+   k= LCM(i,j);
+printf("%d ",k);
 }
-LCM(int i,int j)
+int LCM(int i,int j)
 {
     int a,b;
     a=i; b=j;
@@ -17,17 +18,18 @@ LCM(int i,int j)
         else
             b=b+j;
     }
-    printf("LCM is %d ",a);
+   return a;
 }
 Ans=2
 int main()
 {
-    int i,j;
+    int i,j,a;
     printf("Enter two for HCF ");
     scanf("%d%d",&i,&j);
-    HCF(i,j);
+    a=HCF(i,j);
+    printf("%d ",a);
 }
-HCF(int i,int j)
+int HCF(int i,int j)
 {
     int a,b;
     a=i; b=j;
@@ -38,19 +40,23 @@ HCF(int i,int j)
         else
             b=b-a;
     }
-    printf("HCF is %d ",a);
+    return a;
 }
 
 Ans=3
 int main()
 {
-    int n;
+    int n,i;
     printf("Enter a number ");
     scanf("%d",&n);
-    checkprime(n);
+    i=checkprime(n);
+    if(i==1)
+        printf("Prime ");
+    else
+        printf("Not Prime");
 }
 
-checkprime(int n)
+int checkprime(int n)
 {
     int i;
     while(1)
@@ -58,14 +64,10 @@ checkprime(int n)
         for(i=2;i<n;i++)
           if(n%i==0)
             break;
-        if(i==n){
-            printf("Prime Number ");
-            break;}
+        if(i==n)
+            return 1;
         else
-        {
-            printf("Not Prime");
-            break;
-        }
+            return 0;
     }
 }
 
@@ -87,13 +89,14 @@ Ans=7
 
 int main()
 {
-    fibo();
-}
-fibo()
-{
-        int i,j=0,k=1,n,x=1;
+	int n;
     printf("Enter number ");
     scanf("%d",&n);
+    fibo(n);
+}
+int fibo(int n)
+{
+        int i,j=0,k=1,x=1;
     printf("%d ",x);
     while(++x<=n)
     {
@@ -105,14 +108,15 @@ fibo()
 }
 Ans=6
 int main()
-{
-    coprime();
-}
-coprime()
-{
-    int i,j,k,l;
-    printf("Enter two number ");
+{	int k,l;
+  printf("Enter two number ");
     scanf("%d%d",&k,&l);
+   
+   coprime(k,l);
+}
+coprime(int k,int l)
+{
+    int i,j;
     while(k<=l)
     {
         for(i=2;i<k;i++)
@@ -126,21 +130,23 @@ coprime()
 Ans=4
 int main()
 {
-    coprime();
-}
-coprime()
-{
-    int i,j,k,l;
+    int k;
     printf("Enter two number ");
     scanf("%d",&k);
+
+    printf("%d",coprime(k));
+
+}
+coprime(int k)
+{
+    int i,j,l;
     while(1)
     {
         for(i=2;i<k;i++)
             if(k%i==0)
                 break;
         if(i==k){
-            printf("%d ",i);
-        break;}
+            return i;}
 
             k++;
     }
